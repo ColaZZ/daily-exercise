@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Vuejs简单示例</title>
+		<script src="https://unpkg.com/vue"></script>
+
+		<div id="demo">
+			<h1>{{msg}}</h1>
+			<form @submit.prevent="additem(newitem)">
+				<div v-for="(item, index) in items">
+					<label>{{ item.text }}<button @click="deleteitem(index)" v-show="item.text">删除</button></label>
+				</div>
+				<div>
+					<input type="text" v-model="newitem.text">
+				</div>
+				<div>
+					<button>添加</button>
+				</div>
+			</form>
+		</div>
+
+		<script>
+			new Vue({
+				el:'#demo',
+				data:{
+					msg:"第一个vue示例",
+					items:[
+						{text:'hello 世界'}
+					],
+					newitem:{text:""},
+				},
+				methods:{
+					additem(newitem){
+						this.items.push(newitem);
+						this.newitem={text:''}
+					},
+					deleteitem(index){
+						this.items.splice(index,1)
+					},
+				}
+			})
+		</script>
+
+	</head>
+</html>

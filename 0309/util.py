@@ -22,4 +22,3 @@ def blocks(file):
             yield ''.join(block).strip()
             block = []
 
-            

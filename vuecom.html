@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>vue.js组件示例</title>
+	<script src="https://unpkg.com/vue"></script>
+	<style>
+		.active{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="demo">
+		<my-component :msg='msg'></my-component>
+		<my-component></my-component>
+		<my-component></my-component>
+		<!-- <a :class="{ active: isActive }">红色</a> -->
+	</div>
+	<script type="text/template-x" id="my_component-template">
+		<div>一个vuejs组件例子! {{msg}}</div>
+	</script>
+</body>
+</html>
+<script>
+	Vue.component('my-component', {
+		template: '#my_component-template',
+		props:['msg'],
+		data:[
+
+		],
+	})
+
+	new Vue({
+		el:'#demo',
+		data:{
+			isActive:true,
+			msg:'vue.js组件',
+		}
+	})
+</script>
